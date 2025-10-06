@@ -1,19 +1,23 @@
-const dotenv = require('dotenv')
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
 
-const express = require('express');
+const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8000;
-const cors = require('cors')
+const cors = require("cors");
 app.use(express.json());
-app.use(cors({
-  origin: ["https://coderevai.netlify.app"], // or "*" for testing
-}))
+app.use(
+  cors({
+    origin: "https://coderevai.netlify.app", // restrict to your frontend
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
-const aiRouter = require('./routes/route')
+const aiRouter = require("./routes/route");
 
-app.use('/ai',aiRouter);
+app.use("/ai", aiRouter);
 
-app.listen(PORT,()=>{
-    console.log("server is live at: "+PORT);
-})
+app.listen(PORT, () => {
+  console.log("server is live at: " + PORT);
+});
