@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://coderevai.netlify.app", // restrict to your frontend
+    origin: "*", // restrict to your frontend
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
