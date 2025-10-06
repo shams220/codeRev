@@ -28,7 +28,7 @@ function CodeReviewer() {
       setLoading(true);
       const data = { code };
       const res = await axios.post(
-        "http://localhost:8000/ai/get-response",
+        "http://coderev-xk58.onrender.com/ai/get-response",
         data
       );
       setResponse(res.data);
