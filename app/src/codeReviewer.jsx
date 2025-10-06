@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
@@ -40,13 +40,10 @@ function CodeReviewer() {
     }
   };
 
-  const clearBtn = () => {};
-  useEffect(() => {
-    <CodeReviewer />;
-  }, [clearBtn]);
+
   useEffect(() => {
     Prism.highlightAll();
-  }, [code]);
+  });
 
   return (
     <>
@@ -88,7 +85,7 @@ function CodeReviewer() {
                 </button>
               </div>
               <div>
-                <button className="bg-white " onClick={clearBtn}>
+                <button className="bg-white " >
                   clear
                 </button>
               </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useRef} from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from '../../lib/utils';
@@ -18,7 +18,9 @@ export const SparklesCore = (props) => {
     particleColor,
     particleDensity,
   } = props;
+  const containerRef = useState(null);
   const [init, setInit] = useState(false);
+ 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       console.log("Initializing tsParticles...");  // Debug log
@@ -33,7 +35,7 @@ export const SparklesCore = (props) => {
   const controls = useAnimation();
 
   const particlesLoaded = async (container) => {
-    console.log("Particles loaded:", container);  // Debug log
+    // console.log("Particles loaded:", container);  // Debug log
     if (container) {
       controls.start({
         opacity: 1,
@@ -44,7 +46,7 @@ export const SparklesCore = (props) => {
 
   const generatedId = useId();
   return (
-    <div className={cn("opacity-100", className)}>
+    <div ref={containerRef} className={cn("opacity-100", className)}>
       {init && (
         <Particles
           id={id || generatedId}
