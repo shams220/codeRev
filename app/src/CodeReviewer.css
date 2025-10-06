@@ -1,0 +1,229 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+.mainDiv{
+  background-color: #000000;
+}
+.leftDiv{
+  width: 40%;
+height: 88%;
+  
+}
+.right{
+  width: 60%;
+}
+.heading {
+  height: 10%;
+margin-bottom: 0.5rem;
+  
+
+
+}
+.heading h1{
+ font-size: 3rem;
+ background-color: #252424;
+ width: 100%;
+ border-radius: 10px;
+  height: 6rem;
+color: grey;
+display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.right {
+  overflow: auto; /* allows scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Chrome, Safari, Edge */
+.right::-webkit-scrollbar {
+  display: none;
+}
+.reviewBtn{
+
+ color: white;
+ width: 9rem;
+ height: 3rem;
+ background-color: blue; 
+ border-radius: 10px;
+ 
+}
+
+pre{
+    overflow: auto; /* allows scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+pre::-webkit-scrollbar
+{
+  display: none;
+
+}
+
+p{
+  margin-top: 4rem;
+}
+
+li{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+}
+main .left{
+  margin-top: 2rem;
+}
+/* main .right{
+  width: 60%;
+} */
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 60%;
+  border-radius: 0.7rem;
+}
+
+main .left {
+  background-color: #000000;
+  position: relative;
+}
+textarea{
+  color: white;
+}
+
+code.hljs{
+background-color: #000000;
+    border-radius: 9px;
+   
+}
+
+.left .code,
+.code pre,
+.code pre code {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #755e5e;
+}
+
+main .left .review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgb(219, 219, 255);
+  color: white;
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+}
+
+
+main .right {
+  /* background-color: #252424;
+  padding: 4rem 12rem;
+  padding-bottom: 3rem;
+  font-size: 1rem;
+  overflow: auto;
+  color: white;
+    font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal; */
+
+  background-color: #252424;
+  padding: 4rem 12rem;
+  padding-bottom: 3rem;
+  font-size: 1rem;
+  overflow: auto;
+  color: white;
+  min-height: 100%;   /* ADD THIS */
+  position: relative; /* important for SparklesCore absolute positioning */
+
+
+}
+main .right p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+main .right li {
+  margin-bottom: 0.6rem;
+}
+
+main .right code {
+  background-color: #1e1e1e;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+main .right pre {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.hljs-regexp, .hljs-string, .hljs-meta .hljs-string {
+    color: #86ce8c;
+}
+
+code[class*="language-"],
+code[class*="language-"], pre[class*="language-"] {
+    color: white;
+    background: none;
+    /* text-shadow: 0 1px white; */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    text-shadow: none;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    hyphens: none;
+}
+.hljs-subst {
+    color: #dcba1e;
+}
+
+
+
+.ease-in {
+  opacity: 0;
+  transform: translateY(20px); /* start slightly lower */
+  animation: easeInAnim 0.5s ease forwards; /* duration + easing */
+}
+
+@keyframes easeInAnim {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
