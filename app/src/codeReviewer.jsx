@@ -1,5 +1,5 @@
-import { useState, useEffect,useRef } from "react";
-import Editor from "react-simple-code-editor";
+import { useState, useEffect, useRef } from "react";
+// import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
 import "prismjs/components/prism-javascript";
@@ -10,11 +10,12 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css"; // optional theme
 import "./CodeReviewer.css";
+// import './codeReview.css';
 import FadeContent from "./components/FadeContent";
 import Loading from "./components/loading/Loading";
-import SplitText from "./components/SplitText";
-import TextType from "./components/TextType/TextType";
 import SparklesPreview from "./uitesting";
+import logo from "./assets/CodeRev.png";
+
 
 function CodeReviewer() {
   const [code, setCode] = useState("");
@@ -32,6 +33,7 @@ function CodeReviewer() {
         data
       );
       setResponse(res.data);
+      setCode("");
       console.log("here is your code review", res.data);
     } catch (err) {
       console.log("some error while fetching response");
@@ -40,7 +42,6 @@ function CodeReviewer() {
     }
   };
 
-
   useEffect(() => {
     Prism.highlightAll();
   });
@@ -48,64 +49,48 @@ function CodeReviewer() {
   return (
     <>
       <FadeContent>
-        {/* <MagicBento> */}
+       
         <main className="mainDiv">
-          <div className="leftDiv">
-            <div className="heading">
-              <h1>Code reviewer</h1>
-            </div>
-            <div className="left">
-              <div className="code">
-                <Editor
-                  value={code}
-                  onValueChange={(code) => setCode(code)}
-                  highlight={(code) =>
-                    Prism.highlight(
-                      code,
-                      Prism.languages.javascript,
-                      "javascript"
-                    )
-                  }
-                  padding={10}
-                  style={{
-                    fontFamily: '"Fira code", "Fira Mono", monospace',
-                    fontSize: 16,
-                    border: "1px solid #ddd",
-                    borderRadius: "5px",
-                    height: "100%",
-                    width: "100%",
-                    color: "white",
-                    backgroundColor: "#3d3b3b",
-                  }}
-                />
-              </div>
-              <div>
-                <button className="review" onClick={getResponse}>
-                  Review
-                </button>
-              </div>
-              <div>
-                <button className="bg-white " >
-                  clear
-                </button>
-              </div>
+           <div className="logoCR">
+            <img
+              src={logo}
+              alt=""
+              className="logo-img"
+            />
+          </div>
+        <div className="content">
+           <div className="left" >
+            <div className="input-box " style={{backgroundColor:"#303030"}}>
+              <input
+                className="text-area"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                placeholder="Ask anything"
+              
+              />
+
+              <button className="review" onClick={getResponse}>
+                <span className="btn-text">Review</span>
+  <span className="btn-icon">➤</span>
+              </button>
+              
             </div>
           </div>
 
           <div className="right bg-black">
             {/* Sparkles background */}
             {!loading && !response && (
-              <div className="absolute inset-0 z-0">
+              <div className="absolute sparkle inset-0 z-0">
                 <SparklesPreview />
               </div>
             )}
 
             {/* Foreground content */}
-            <div className="relative z-10 w-full h-full flex items-center justify-center w-full h-full p-4">
+            <div className="anim relative z-10  h-full flex items-center justify-center w-full h-full p-4">
               {loading ? (
                 <Loading />
               ) : response ? (
-                <div className="ease-in typewriter w-full h-full overflow-y-auto text-white">
+                <div className="anim ease-in typewriter w-full h-full overflow-y-auto text-white">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeHighlight]}
@@ -114,18 +99,16 @@ function CodeReviewer() {
                   </ReactMarkdown>
                 </div>
               ) : (
-                <p className="text-gray-400 text-lg text-center">
-                  ✨ Your AI review will appear here… Paste code on the left &
-                  click <span className="text-indigo-400">Review</span>.
+                <p className="text-gray-400 text-lg text-center z-50 review-heading">
+                   CodeRev Where Code Meets Clarity
                 </p>
               )}
             </div>
           </div>
-
-          {/* {loading == true && }
-
-           {response && 
-            } */}
+           
+        </div>
+         
+         
         </main>
       </FadeContent>
     </>

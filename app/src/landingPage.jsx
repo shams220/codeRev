@@ -53,7 +53,7 @@ navigate('/About')
             <div className="text">
              
                 <SplitText
-                  text="Look, mom! The AI said my code is clean am I a hacker now "
+                  text="From spaghetti code to gourmet software, effortlessly"
                   tag=""
                   className="Lainding-heading"
                 />
