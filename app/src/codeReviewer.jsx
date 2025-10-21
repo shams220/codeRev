@@ -86,7 +86,7 @@ function CodeReviewer() {
             )}
 
             {/* Foreground content */}
-            <div className="anim relative z-10  h-full flex items-center justify-center w-full h-full p-4">
+            <div className="anim relative z-10  h-full flex items-center justify-center w-full h-full ">
               {loading ? (
                 <Loading />
               ) : response ? (

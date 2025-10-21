@@ -265,7 +265,7 @@ main .right pre {
 }
 
 .anim{
-  width: 83%;
+  width: 78%;
 }
 code[class*="language-"], pre[class*="language-"] {
   text-shadow: none;
@@ -325,12 +325,18 @@ main .review {
     font-size: 1rem;
    
 }
+.anim{
+  width: 79%;
+}
 
 
  }
  @media(max-width:900px){
   .input-box{
     width: 82%;
+  }
+  .anim{
+    width: 90%;
   }
  }
  @media(max-width:850px){
